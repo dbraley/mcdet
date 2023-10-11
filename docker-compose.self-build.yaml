@@ -1,0 +1,62 @@
+version: "3.9"
+
+services:
+  svc1:
+    # Including build overrides the 'image', which could be useful for templating
+    build:
+      dockerfile: golang.Dockerfile
+    command: bash /usr/bin/go-build-and-run.bash
+    volumes:
+      # The runner script
+      - ./builder/go-build-and-run.bash:/usr/bin/go-build-and-run.bash
+      # Volume mounts to watch
+      - ./go.mod:/workspace/go.mod
+      - ./pkg/:/workspace/pkg/
+      - ./services/$SERVICE_NAME:/workspace/services/$SERVICE_NAME
+    environment:
+      SERVICE_NAME: svc1
+
+  svc2:
+    # Including build overrides the 'image', which could be useful for templating
+    build:
+      dockerfile: golang.Dockerfile
+    command: bash /usr/bin/go-build-and-run.bash
+    volumes:
+      # The runner script
+      - ./builder/go-build-and-run.bash:/usr/bin/go-build-and-run.bash
+      # Volume mounts to watch
+      - ./go.mod:/workspace/go.mod
+      - ./pkg/:/workspace/pkg/
+      - ./services/$SERVICE_NAME:/workspace/services/$SERVICE_NAME
+    environment:
+      SERVICE_NAME: svc2
+
+  svc3:
+    # Including build overrides the 'image', which could be useful for templating
+    build:
+      dockerfile: golang.Dockerfile
+    command: bash /usr/bin/go-build-and-run.bash
+    volumes:
+      # The runner script
+      - ./builder/go-build-and-run.bash:/usr/bin/go-build-and-run.bash
+      # Volume mounts to watch
+      - ./go.mod:/workspace/go.mod
+      - ./pkg/:/workspace/pkg/
+      - ./services/$SERVICE_NAME:/workspace/services/$SERVICE_NAME
+    environment:
+      SERVICE_NAME: svc3
+
+  svc4:
+    # Including build overrides the 'image', which could be useful for templating
+    build:
+      dockerfile: golang.Dockerfile
+    command: bash /usr/bin/go-build-and-run.bash
+    volumes:
+      # The runner script
+      - ./builder/go-build-and-run.bash:/usr/bin/go-build-and-run.bash
+      # Volume mounts to watch
+      - ./go.mod:/workspace/go.mod
+      - ./pkg/:/workspace/pkg/
+      - ./services/$SERVICE_NAME:/workspace/services/$SERVICE_NAME
+    environment:
+      SERVICE_NAME: svc4
