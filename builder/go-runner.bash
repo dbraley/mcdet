@@ -10,10 +10,6 @@ sigint_handler()
 
 trap sigint_handler SIGINT
 
-# These should be in the dockerfile
-apt-get update
-apt-get install -y inotify-tools
-
 while true; do
   VERSIONFILE="$BIN_DIR/$SERVICE_NAME.latest"
   if [ -e $VERSIONFILE ]
