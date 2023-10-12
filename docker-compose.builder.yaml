@@ -3,10 +3,8 @@ version: "3.9"
 services:
   ### Go-based services
   go-builder:
-    # Including build overrides the 'image', which could be useful for templating
     build:
       dockerfile: golang.Dockerfile
-    image: golang
     command: bash /usr/bin/go-builder.bash --loop
     volumes:
       # The builder script
@@ -21,10 +19,8 @@ services:
       SERVICES: "svc1 svc2 svc3 svc4"
 
   svc1:
-    # Including build overrides the 'image', which could be useful for templating
     build:
       dockerfile: golang.Dockerfile
-    image: golang
     command: bash /usr/bin/go-runner.bash
     volumes:
       # The runner script
@@ -35,10 +31,8 @@ services:
       SERVICE_NAME: svc1
 
   svc2:
-    # Including build overrides the 'image', which could be useful for templating
     build:
       dockerfile: golang.Dockerfile
-    image: golang
     command: bash /usr/bin/go-runner.bash
     volumes:
       # The runner script
@@ -49,10 +43,8 @@ services:
       SERVICE_NAME: svc2
 
   svc3:
-    # Including build overrides the 'image', which could be useful for templating
     build:
       dockerfile: golang.Dockerfile
-    image: golang
     command: bash /usr/bin/go-runner.bash
     volumes:
       # The runner script
@@ -63,10 +55,8 @@ services:
       SERVICE_NAME: svc3
 
   svc4:
-    # Including build overrides the 'image', which could be useful for templating
     build:
       dockerfile: golang.Dockerfile
-    image: golang
     command: bash /usr/bin/go-runner.bash
     volumes:
       # The runner script
